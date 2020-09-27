@@ -8,6 +8,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.Entity;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -15,6 +17,7 @@ namespace WebApplication1
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new BookDbInitializer());
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
